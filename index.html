@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qnity Consultants — life insurance, capital markets, sustainability, innovation</title>
+<meta name="description" content="A specialist consultancy working in life insurance, capital markets, sustainability and innovation. Actuarial models built in Python and Matlab. Europe, the UK, and remote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;600&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F3EE;
+    --ink:#1B2522;
+    --mid:#59635E;
+    --rule:#D3D6CC;
+    --accent:#2F5D4C;
+    --serif:"Spectral", Georgia, "Times New Roman", serif;
+    --sans:"Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:1.0625rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:68rem;
+    margin:0 auto;
+    padding:0 2rem;
+  }
+
+  a{color:inherit;}
+
+  a:focus-visible,.skip:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:1px;
+  }
+
+  .skip{
+    position:absolute;left:-9999px;
+    background:var(--ink);color:var(--paper);
+    padding:.6rem 1rem;font-family:var(--sans);font-size:.8rem;
+  }
+  .skip:focus{left:1rem;top:1rem;z-index:10;}
+
+  /* ---------- masthead ---------- */
+
+  .masthead{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem 2rem;
+    align-items:baseline;
+    justify-content:space-between;
+    padding:2.75rem 0 0;
+  }
+
+  .mark{
+    font-size:clamp(1.75rem, 4.2vw, 2.75rem);
+    font-weight:400;
+    letter-spacing:-0.02em;
+    line-height:1.1;
+  }
+
+  .menu{
+    font-family:var(--sans);
+    font-size:.875rem;
+    display:flex;
+    gap:1.75rem;
+  }
+
+  .menu a{
+    text-decoration:none;
+    color:var(--mid);
+    padding-bottom:.15rem;
+    border-bottom:1px solid transparent;
+  }
+  .menu a:hover{color:var(--ink);border-bottom-color:var(--rule);}
+
+  /* ---------- hero ---------- */
+
+  .hero{padding:5rem 0 4.5rem;}
+
+  .lede{
+    font-size:clamp(2.2rem, 5.9vw, 4.3rem);
+    line-height:1.07;
+    font-weight:300;
+    letter-spacing:-0.02em;
+    margin:0;
+    max-width:20ch;
+    text-wrap:balance;
+  }
+
+  .hero p{
+    max-width:48ch;
+    margin:2.4rem 0 0;
+    color:var(--mid);
+    font-size:1.1875rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .lede,.hero p{opacity:0;animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards;}
+    .hero p{animation-delay:.16s;}
+    @keyframes rise{
+      from{opacity:0;transform:translateY(.55rem);}
+      to{opacity:1;transform:none;}
+    }
+  }
+
+  /* ---------- full-width section headings ---------- */
+
+  .band{padding:3.25rem 0 0;}
+  .band:last-of-type{padding-bottom:4rem;}
+
+  .head{
+    font-size:clamp(1.75rem, 4.4vw, 2.9rem);
+    font-weight:300;
+    letter-spacing:-0.02em;
+    line-height:1.1;
+    margin:0 0 2.25rem;
+    padding-bottom:1.1rem;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .band p{max-width:62ch;}
+  .band > p:first-of-type{margin-top:0;}
+
+  .intro{
+    font-size:1.1875rem;
+    max-width:60ch;
+    margin:0 0 2rem;
+  }
+
+  /* ---------- practice areas ---------- */
+
+  .areas{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(21rem, 1fr));
+    gap:2.25rem 3.5rem;
+  }
+
+  .areas li{
+    border-top:1px solid var(--rule);
+    padding-top:1.1rem;
+  }
+
+  .areas h3{
+    font-size:1.1875rem;
+    font-weight:600;
+    margin:0 0 .4rem;
+    letter-spacing:.005em;
+  }
+
+  .areas p{margin:0;color:var(--mid);}
+
+  /* ---------- how we build ---------- */
+
+  .build{
+    margin:3rem 0 0;
+    padding-top:1.75rem;
+    border-top:1px solid var(--rule);
+  }
+
+  .build h3{
+    font-size:1.1875rem;
+    font-weight:600;
+    margin:0 0 .6rem;
+  }
+
+  .build p{margin:0 0 1.5rem;}
+
+  .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .stack li{
+    font-family:var(--sans);
+    font-size:.8125rem;
+    color:var(--mid);
+    border:1px solid var(--rule);
+    border-radius:2px;
+    padding:.3rem .7rem;
+  }
+
+  /* ---------- locations ---------- */
+
+  .places{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(15rem, 1fr));
+    gap:2.25rem 3.5rem;
+    margin:0;padding:0;list-style:none;
+  }
+
+  .places li{
+    border-top:1px solid var(--rule);
+    padding-top:1.1rem;
+  }
+
+  .places h3{font-size:1.1875rem;font-weight:600;margin:0 0 .4rem;}
+  .places p{margin:0;color:var(--mid);}
+
+  /* ---------- two-column prose ---------- */
+
+  .cols{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(20rem, 1fr));
+    gap:1.25rem 3.5rem;
+  }
+  .cols > p{max-width:none;margin:0;}
+
+  /* ---------- case study ---------- */
+
+  .case{
+    border-top:1px solid var(--rule);
+    padding-top:1.75rem;
+    display:grid;
+    grid-template-columns:minmax(0,17rem) minmax(0,1fr);
+    gap:1.5rem 3.5rem;
+    align-items:start;
+  }
+
+  .case .detail > p{max-width:none;}
+
+  .case + .case{margin-top:3.25rem;}
+
+  .case h3{
+    font-size:clamp(1.25rem, 2.6vw, 1.6rem);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.2;
+    margin:0 0 .5rem;
+  }
+
+  .meta{
+    font-family:var(--sans);
+    font-size:.8125rem;
+    color:var(--mid);
+    margin:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.3rem 1.25rem;
+  }
+
+  .case p{
+    max-width:64ch;
+    margin:0 0 1.1rem;
+  }
+
+  .case p:last-child{margin-bottom:0;}
+
+  .case b{
+    font-weight:600;
+    color:var(--accent);
+  }
+
+  .case .step{margin-top:1.6rem;}
+  .case .detail > p:first-child{margin-top:0;}
+
+  .case a{
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid rgba(47,93,76,.3);
+  }
+  .case a:hover{border-bottom-color:var(--accent);}
+
+  p.more{
+    margin:2.5rem 0 0;
+    padding-top:1.5rem;
+    border-top:1px solid var(--rule);
+    color:var(--mid);
+    max-width:none;
+  }
+
+  /* ---------- contact ---------- */
+
+  .contact{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(20rem, 1fr));
+    gap:1.25rem 3.5rem;
+    align-items:start;
+  }
+  .contact p{max-width:none;margin:0;}
+
+  /* ---------- open source ---------- */
+
+  .repos{
+    list-style:none;margin:2rem 0 0;padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(23rem, 1fr));
+    gap:0 3.5rem;
+  }
+
+  .repos li{
+    padding:1rem 0;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .repos a{
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid rgba(47,93,76,.3);
+    overflow-wrap:anywhere;
+  }
+  .repos a:hover{border-bottom-color:var(--accent);}
+
+  .repos span{
+    display:block;color:var(--mid);
+    font-size:.9375rem;margin-top:.25rem;
+  }
+
+  .figures{
+    display:flex;flex-wrap:wrap;gap:2.5rem;
+    margin:2.25rem 0 0;
+  }
+
+  .figures div{line-height:1.3;}
+
+  .figures strong{
+    display:block;
+    font-size:2rem;font-weight:300;letter-spacing:-0.015em;
+  }
+
+  .figures span{
+    font-family:var(--sans);font-size:.8125rem;color:var(--mid);
+  }
+
+  /* ---------- contact ---------- */
+
+  .email{
+    font-size:clamp(1.15rem, 4.4vw, 2.1rem);
+    font-weight:300;
+    letter-spacing:-0.015em;
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:.15rem;
+    display:inline-block;
+    margin-bottom:1.75rem;
+    overflow-wrap:anywhere;
+    max-width:100%;
+  }
+  .email:hover{border-bottom-color:var(--ink);}
+
+  .colophon{
+    border-top:1px solid var(--rule);
+    padding:1.75rem 0 3rem;
+    font-family:var(--sans);font-size:.8125rem;color:var(--mid);
+    display:flex;flex-wrap:wrap;gap:.4rem 1.75rem;
+    justify-content:space-between;
+  }
+  .colophon a{color:var(--mid);}
+
+  @media (max-width: 52rem){
+    .case{grid-template-columns:1fr;gap:1.25rem;}
+  }
+
+  @media (max-width: 40rem){
+    .wrap{padding:0 1.4rem;}
+    .hero{padding:3.5rem 0 3rem;}
+    .band{padding-top:2.75rem;}
+    .head{margin-bottom:1.75rem;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="mark">Qnity Consultants</div>
+    <nav class="menu" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#open-source">Open source</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <h1 class="lede">A small consultancy for the difficult problems in life insurance.</h1>
+      <p>We work across life insurance, capital markets, sustainability and innovation, for teams that need the answer to hold up under scrutiny. Most of what we deliver is working code.</p>
+    </section>
+
+    <section class="band" id="practice">
+      <h2 class="head">What we do</h2>
+
+      <ul class="areas">
+        <li>
+          <h3>Life insurance</h3>
+          <p>Actuarial modelling, valuation and reporting for life portfolios, including Solvency II balance sheets, IFRS results and the assumptions behind them.</p>
+        </li>
+        <li>
+          <h3>Capital markets</h3>
+          <p>Economic scenario generation, yield curve construction and the long-horizon market assumptions that asset-liability decisions rest on.</p>
+        </li>
+        <li>
+          <h3>Sustainability</h3>
+          <p>Carbon intensity and TCFD reporting for insurers and pension schemes, from the calculation itself through to the process that produces it each year.</p>
+        </li>
+        <li>
+          <h3>Innovation</h3>
+          <p>Turning research into working tools: open, testable models that a team can inspect, run and maintain after we leave.</p>
+        </li>
+      </ul>
+
+      <div class="build">
+        <h3>How we build it</h3>
+        <div class="cols">
+          <p>Most of what we deliver is code rather than a slide deck. We write production models in <strong style="font-weight:600;">Python</strong> and <strong style="font-weight:600;">Matlab</strong>, keep everything under version control in <strong style="font-weight:600;">Git</strong>, and document in LaTeX where the mathematics needs to be readable years later.</p>
+          <p>Where a process currently lives in Excel and VBA, we start there rather than insisting on a rewrite, and move it when there is a reason to. Handover includes training the internal actuarial team to run, test and extend the model themselves, which is usually the difference between a model that survives and one that does not.</p>
+        </div>
+        <ul class="stack">
+          <li>Python</li>
+          <li>Matlab</li>
+          <li>Git</li>
+          <li>Excel and VBA</li>
+          <li>LaTeX</li>
+          <li>Jupyter</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band" id="where">
+      <h2 class="head">Where we work</h2>
+
+      <ul class="places">
+        <li>
+          <h3>Europe</h3>
+          <p>Continental engagements, with Solvency II and EIOPA reporting as the working context.</p>
+        </li>
+        <li>
+          <h3>United Kingdom</h3>
+          <p>UK insurers, pension providers and the London market.</p>
+        </li>
+        <li>
+          <h3>Remote</h3>
+          <p>Most work runs remotely, with on-site alignment and workshops when a project calls for it.</p>
+        </li>
+      </ul>
+
+      <p style="margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid var(--rule);color:var(--mid);">Working languages: English, Italian, German and Slovenian.</p>
+    </section>
+
+    <section class="band" id="work">
+      <h2 class="head">Past projects</h2>
+
+      <article class="case">
+        <div class="lead">
+          <h3>A government-owned pension fund</h3>
+          <p class="meta"><span>Actuarial transformation</span><span>18 months</span><span>Python, GitHub</span><span>On site and remote</span></p>
+        </div>
+
+        <div class="detail">
+        <p class="step"><b>Client.</b> A dedicated provider of supplementary pension insurance products, with €2bn under administration across a large unit-linked and annuity portfolio.</p>
+
+        <p class="step"><b>Challenge.</b> The actuarial and innovation team was expanding and moving from Excel-based workflows to programmatic ones at the same time. Two changes at once, either of which is difficult alone. We were brought in to set up and lead the transformation programme and to support the team through the transition.</p>
+
+        <p class="step"><b>Approach.</b> Over 18 months we ran on-site workshops and presentations to align the team, senior leadership and the board behind a single vision, because a transformation of this kind fails on consent long before it fails on code. Alongside that we worked with internal staff to build their skills in Python and GitHub.</p>
+
+        <p>The bulk of the work was automating existing processes in Python. We also built a novel stochastic model for time value of options and guarantees that removes the need for an external scenario generator, and a large liability forecasting model. The first as an Excel workbook with embedded Python for the people who work in spreadsheets, the second as a Python library for the people who work in code. The entire corpus was handed over to their internal team.</p>
+
+        <p class="step"><b>Outcome.</b> A large part of Solvency reporting now runs in Python. The team has a liability model that produces ORSA reports in a single run, which also makes planning more realistic than it was before. A set of Python scripts handles cross-validation, data transformation and datafile generation, saving time and reducing errors in the reporting process.</p>
+
+        <p>Most importantly, they have internal people trained in Python and version control. The team can maintain and extend the work without us, which is the only version of this outcome that lasts.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="lead">
+          <h3>A UK long-term savings group</h3>
+          <p class="meta"><span>Sustainability</span><span>27 months</span><span>Excel, Power Query, Sustainalytics</span><span>On site and remote</span></p>
+        </div>
+
+        <div class="detail">
+        <p class="step"><b>Client.</b> One of the largest long-term savings businesses in the UK, expanding through acquisition, with more than £300bn under administration.</p>
+
+        <p class="step"><b>Challenge.</b> New TCFD regulation on carbon intensity metrics produced a high volume of requests at short intervals, while the methodology itself was still changing. The reporting obligation was firm; the reporting pipeline was not.</p>
+
+        <p class="step"><b>Approach.</b> We joined a small team of developers, actuaries and business analysts and helped them build a tactical solution in Excel, Power Query and Sustainalytics, deliberately chosen to absorb the immediate volume rather than to last. It carried the increased request load successfully.</p>
+
+        <p>In parallel we acted as technical advisor to a separate team building a cloud-based platform intended to remove the reporting overhead permanently. We also built a long-term sustainability forecasting model that let senior leadership judge the scale of carbon-light portfolio development the strategy would require.</p>
+
+        <p class="step"><b>Outcome.</b> Across 27 months the company met its reporting obligations throughout the interim period and protected its standing as one of the more sustainability-conscious businesses in the market. It developed a fresh long-term sustainability strategy and cut the reporting lag on its flagship fund by a fiscal quarter. The strategic cloud solution went on to make TCFD reporting effortless.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="lead">
+          <h3>A UK health insurer</h3>
+          <p class="meta"><span>Capital modelling</span><span>8 months</span><span>Matlab</span><span>Internal model development</span></p>
+        </div>
+
+        <div class="detail">
+        <p class="step"><b>Client.</b> One of the oldest health insurers in the UK, moving its listing from the United Kingdom to Asia.</p>
+
+        <p class="step"><b>Challenge.</b> The internal model had been built for compliance with Solvency UK under the PRA. The intended new domicile operates a different risk-based capital regime, under a different regulator and on a real-world basis, which required changes to the model. Calibration risk, absent from risk-neutral modelling, now had to be quantified.</p>
+
+        <p class="step"><b>Approach.</b> We joined the Capital Management and Modelling team to take several of the required modules from idea to production, and were assigned four: long-term equity level, long-term equity volatility, long-term credit spread, and long-term credit spread volatility.</p>
+
+        <p>We ran a preliminary analysis, implemented multiple prototypes in Matlab, and iterated on each module. The winning methodology was a Bayesian approach using the Metropolis-Hastings algorithm to calculate calibration risk, tailored to each of the four models. We trialled it on a subset of countries to validate the approach further.</p>
+
+        <p>Because the method was unfamiliar, we also produced material introducing it to a wider internal audience: a novel approach that nobody can explain does not survive review. After final approval, we worked with the internal model team to translate the Matlab code into their own software.</p>
+
+        <p class="step"><b>Outcome.</b> The company added four new modules, expanding the coverage of modelled risks and aligning the model to the new regulatory regime. It was also introduced to several novel approaches to risk modelling that may prove valuable later.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="lead">
+          <h3>A top-listed Italian bancassurance group</h3>
+          <p class="meta"><span>Capital markets</span><span>3 months</span><span>Python</span><span>On site and remote</span></p>
+        </div>
+
+        <div class="detail">
+        <p class="step"><b>Client.</b> The life insurance entity of a top-listed Italian bancassurance group.</p>
+
+        <p class="step"><b>Challenge.</b> The ALM team received a large datafile of risk-neutral and real-world scenarios from an external provider every month and used it for downstream analysis. They had no independent way to confirm the generator was implemented and calibrated correctly.</p>
+
+        <p class="step"><b>Approach.</b> After an on-site brainstorming workshop and several calls with the vendor, we agreed that an automated Python validation framework suited an activity repeated every month better than a one-off review would.</p>
+
+        <p>We built it in three phases, one per scenario type: a battery of tests for the risk-neutral Black-Scholes model, then the risk-neutral Hull-White model, and finally the real-world Libor market model. Material findings went back to the vendor after each phase.</p>
+
+        <p class="step"><b>Outcome.</b> The team now runs a script each month that catches errors before they reach the analysis, and has independent assurance that the generator meets the standard they need. It gives them a second line of defence against model error.</p>
+
+        <p>The client also allowed part of the methodology to be shared publicly. A reduced version of the validation framework is published on <a href="https://github.com/open-source-modelling/Validation_Economic_Stochastic_Generator">Open-Source Modelling</a>.</p>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="band" id="open-source">
+      <h2 class="head">Open source</h2>
+
+      <div class="cols" style="margin-bottom:0;">
+      <p class="intro" style="margin-bottom:0;">We are the main sponsor of Open-Source Modelling, one of the largest open repositories of actuarial algorithms and practical workbooks, built as an alternative to closed commercial software. Qnity funds and maintains the project, because the models our clients rely on should be ones they can read.</p>
+
+      <p>Started in Milan in 2021 with €25k in pre-seed funding and a place in the Fin+Tech accelerator, it now carries open Python and Matlab implementations of Smith-Wilson, Hull-White, Vasicek two-factor, Nelson-Siegel-Svensson, Black-Scholes, stationary bootstrap and singular spectrum analysis, alongside a full asset-liability model and economic scenario generator.</p>
+      </div>
+
+      <ul class="repos">
+        <li>
+          <a href="https://github.com/open-source-modelling/insurance_python">insurance_python</a>
+          <span>Actuarial and risk algorithms in Python, in one place.</span>
+        </li>
+        <li>
+          <a href="https://github.com/open-source-modelling/insurance_matlab">insurance_matlab</a>
+          <span>The same algorithms, published for Matlab users.</span>
+        </li>
+        <li>
+          <a href="https://github.com/open-source-modelling/Validation_Economic_Stochastic_Generator">Validation_Economic_Stochastic_Generator</a>
+          <span>A validation framework for a monthly economic scenario generator.</span>
+        </li>
+        <li>
+          <a href="https://github.com/open-source-modelling/SFCR_using_Mistral_2025">SFCR_using_Mistral_2025</a>
+          <span>Solvency and Financial Condition Report tables extracted for 22 Italian life insurers.</span>
+        </li>
+      </ul>
+
+      <div class="figures">
+        <div><strong>50</strong><span>public repositories</span></div>
+        <div><strong>201</strong><span>followers</span></div>
+        <div><strong>Free</strong><span>to use and fork</span></div>
+      </div>
+
+      <p style="margin-top:2rem;"><a href="https://github.com/open-source-modelling" style="color:var(--accent);">See the full organisation on GitHub</a></p>
+    </section>
+
+    <section class="band" id="contact">
+      <h2 class="head">Contact</h2>
+
+      <div class="contact">
+      <a class="email" href="mailto:gregor@osmodelling.com">gregor@osmodelling.com</a>
+      <p>A short description of the problem is enough to start. We reply to everything, and we will say plainly if the work is not a fit for us.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="colophon">
+    <div>Qnity Consultants Limited — United Kingdom and Italy</div>
+    <div><a href="https://github.com/open-source-modelling">Open-Source Modelling</a></div>
+  </footer>
+
+</div>
+
+</body>
+</html>
