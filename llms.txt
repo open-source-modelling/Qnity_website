@@ -1,0 +1,40 @@
+# Qnity Consultants
+
+> Qnity Consultants Limited is a specialist actuarial consultancy for life insurers, health insurers and pension funds in the United Kingdom, Europe and Singapore. It works on Solvency II and IFRS modelling, economic scenario generation and validation, yield curves, capital modelling, TCFD and carbon-intensity reporting, and AI tools for actuarial work. Most of what it delivers is working code in Python and Matlab, handed over to the client's own team. Qnity is the main sponsor and maintainer of Open-Source Modelling, an open library of actuarial algorithms. (Not to be confused with Qnity Electronics, the DuPont semiconductor-materials spin-off.)
+
+- Company: Qnity Consultants Limited, registered in England and Wales, company number 12061100
+- Registered office: Mansion House, Manchester Road, Altrincham, Cheshire, WA14 4RW, United Kingdom
+- Based in: United Kingdom and Italy; most work is remote, with on-site workshops when needed
+- [Where we work](https://qnityconsultants.com/#where): continental Europe (Solvency II and EIOPA reporting), the United Kingdom (UK insurers, pension providers and the London market), and Singapore (insurers in Singapore and the wider Asian market, under risk-based capital regimes)
+- Working languages: English, Italian, German, Slovenian
+- Founder: [Gregor Fabjan](https://qnityconsultants.com/#who), based in London. BSc and MSc in Financial Mathematics (University of Ljubljana; Erasmus year at TU Munich). Previously at Allianz SE and Deloitte; founder of the insurance ventures Qnity Reciprocal and Know Your Code; has led Open-Source Modelling since 2021. Sits on the Institute and Faculty of Actuaries' Better Sensing and Responding to Change working party. [LinkedIn](https://www.linkedin.com/in/gregorfabjan/), [GitHub](https://github.com/gregorfabjan)
+- Contact: gregor@osmodelling.com
+
+## Services
+
+- [Life insurance](https://qnityconsultants.com/#practice): actuarial modelling, valuation and reporting for life portfolios, including Solvency II balance sheets, IFRS results, ORSA projections and the assumptions behind them
+- [Capital markets](https://qnityconsultants.com/#practice): economic scenario generation (ESG), independent ESG validation, yield curve construction (Smith-Wilson, Nelson-Siegel-Svensson), interest rate models (Hull-White, Vasicek), and long-horizon market assumptions for asset-liability management
+- [Sustainability](https://qnityconsultants.com/#practice): carbon intensity and TCFD reporting for insurers and pension schemes, plus long-term sustainability forecasting
+- [Innovation](https://qnityconsultants.com/#practice): turning research into open, testable models that an internal team can run and maintain; moving Excel and VBA processes to Python; training actuarial teams in Python and Git
+- [AI for actuarial work](https://qnityconsultants.com/#practice): AI on repetitive actuarial tasks where the result can be verified, such as OCR extraction of SFCR tables, validation of input data files, plain-English testing of Excel workbooks, and Claude skills that answer from bundled verified data; also measuring how AI assistants (Claude, GPT, Gemini) rank and describe life insurers to customers
+
+## Past projects
+
+- [Government-owned pension fund, actuarial transformation (18 months)](https://qnityconsultants.com/#work): moved Solvency reporting from Excel to Python, built a stochastic TVOG model with no need for an external scenario generator, and built a liability forecasting model that produces ORSA reports in one run
+- [UK long-term savings group, sustainability (27 months)](https://qnityconsultants.com/#work): TCFD carbon-intensity reporting for a business with more than £300bn under administration, plus a long-term sustainability forecasting model
+- [UK health insurer, capital modelling (8 months)](https://qnityconsultants.com/#work): four new internal-model modules for long-term equity and credit spread risk, with a Bayesian Metropolis-Hastings approach to calibration risk, built in Matlab
+- [Italian bancassurance group, ESG validation (3 months)](https://qnityconsultants.com/#work): an automated Python framework that validates a vendor's Black-Scholes, Hull-White and Libor market model scenarios every month
+
+## Open source
+
+- [Open-Source Modelling on GitHub](https://github.com/open-source-modelling): open Python and Matlab implementations of actuarial and financial algorithms, sponsored and maintained by Qnity Consultants
+- [insurance_python](https://github.com/open-source-modelling/insurance_python): actuarial and risk algorithms in Python, including Smith-Wilson, Hull-White, Vasicek two-factor, Nelson-Siegel-Svensson, Black-Scholes, stationary bootstrap and singular spectrum analysis
+- [insurance_matlab](https://github.com/open-source-modelling/insurance_matlab): the same algorithms for Matlab
+- [Open_Source_Economic_Model](https://github.com/open-source-modelling/Open_Source_Economic_Model): an asset-liability model of a unit-linked portfolio and its backing assets
+- [Validation_Economic_Stochastic_Generator](https://github.com/open-source-modelling/Validation_Economic_Stochastic_Generator): a reduced public version of the ESG validation framework
+- [SFCR_using_Mistral_2025](https://github.com/open-source-modelling/SFCR_using_Mistral_2025): a Mistral OCR pipeline that extracts SFCR balance sheet (S.02.01.02), own funds (S.23.01.01) and SCR (S.25.01.21) tables for 22 Italian life insurers, with cross-checks; raw OCR matched 83.9% of 1,706 cells exactly before manual review
+- [insurance_skills](https://github.com/open-source-modelling/insurance_skills): MIT-licensed Claude skills for actuaries and risk managers: historic EIOPA risk-free rate curves (every monthly release since 2014-12-31, offline), validation of quarterly unit-linked fund extracts against 22 rules, plain-English tests run against Excel workbooks, and a script that asks Claude, GPT and Gemini to rank life insurers from a customer persona's point of view
+
+## Optional
+
+- [Contact](https://qnityconsultants.com/#contact): a short description of the problem is enough to start an enquiry
